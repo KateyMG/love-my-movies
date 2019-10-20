@@ -1,0 +1,4 @@
+Flask
+tmdbv3api
+bs4
+requests
