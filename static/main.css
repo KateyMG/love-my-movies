@@ -36,6 +36,7 @@
     top: 0px;
     position: relative;
     padding: 1%;
+    
     /* Gradients/Blue */
     background: linear-gradient(162.83deg, #48D3F2 6.03%, rgb(154, 61, 190) 97.94%, rgb(186, 113, 201) 97.94%);
 }
@@ -45,7 +46,7 @@
 
 /* Colors/Success */
 
-background: #1D9C4A;
+background: rgb(43, 183, 226);
 border-radius: 8px;
 }
 
