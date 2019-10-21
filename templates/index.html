@@ -36,16 +36,16 @@
     <div class="body1">
         <h1 class="h1-white" align= "center">Trending Movies</h1>
         <div class="rowx">
-            {% for cont in popular %}
+            {% for cont in r.keys() %}
             <div class="colx-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{cont.poster_path}}">{{cont.title}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{cont.id}}</h6>
-                        <p class="card-text">{{cont.overview}} </p>
+                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{r.hget(cont,"poster_path").decode('utf-8')}}">{{cont}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{r.hget(cont,"id").decode('utf-8')}}</h6>
+                        <p class="card-text">{r.hget(cont,"overview").decode('utf-8')}</p>
                         <div>
                                 <button type="button" class="btn btn-info content-3">Like</button>
-                                <td><h5 class="counter content-3" align="center">{{cont.vote_count}}</h5></td>
+                                <td><h5 class="counter content-3" align="center">{r.hget(cont,"vote_count").decode('utf-8')}</h5></td>
                           <button type="button" class="btn btn-danger content-3">Dislike</button>
   
                         </div>

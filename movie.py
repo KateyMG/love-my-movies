@@ -19,10 +19,7 @@ tmdb.debug= True
 r = redis.Redis()
 r.ping
 #r = redis.Redis(host='redis', port=6379, db=0, charset="utf-8", decode_responses=True)
-r=redis.Redis(host="localhost",port=6379) 
-
-r.set("dani",11)
-r.get("dani")
+r=redis.Redis(host="localhost",port=6379, db=0) 
 
 
 
@@ -49,11 +46,17 @@ for p in popular:
     print(p.poster_path)
 
 for eachMovie in popular:
+        r.hset(eachMovie.title, "title" ,eachMovie.title)
         r.hset(eachMovie.title, "poster_path" ,eachMovie.poster_path)
         r.hset(eachMovie.title, "id" ,eachMovie.id)
         r.hset(eachMovie.title, "overview" ,eachMovie.overview)
         r.hset(eachMovie.title, "vote_count", eachMovie.vote_count)
-        
+print("LLLLLLLLLLLLL")
+print(r.hget("Joker","id").decode('utf-8'))
+
+#Infomarcion en redis
+#Inforedis= r
+#print(Inforedis)
 
 #json
 my_details = {
@@ -79,7 +82,7 @@ environment=os.getenv("KEY","development")
 
 @app.route("/")
 def api_students():
-    return render_template("index.html",popular=popular, discovermovie=discovermovie)
+    return render_template("index.html", discovermovie=discovermovie, r = r)
 
 if __name__ == "__main__":
     debug=False
