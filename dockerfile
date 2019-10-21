@@ -7,3 +7,5 @@ RUN pip install -r requirements.txt
 COPY . ./
 
 CMD [ "python", "movies.py" ]
+
+EXPOSE 5000

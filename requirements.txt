@@ -1,4 +1,6 @@
-Flask
+flask
 tmdbv3api
-bs4
 requests
+redis==3.3.11
+flask
+bs4 
