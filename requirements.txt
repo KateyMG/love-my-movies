@@ -2,5 +2,5 @@ flask
 tmdbv3api
 requests
 redis==3.3.11
-flask
-bs4 
+
+
