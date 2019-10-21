@@ -7,71 +7,78 @@
     href = "static/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+<style>
+    .arriba{
+ width : 50px;
+ height : 50px;
+ font-size : 1px;
+ border-style : solid;
+ border-top-color : #fff;
+ border-left-color : #fff;
+ border-right-color : #fff;
+ border-bottom-color : #000;
+ border-top-width : 1px;
+ border-left-width : 25px;
+ border-right-width : 25px;
+ border-bottom-width : 50px;
+ background-color : #000; 
+ padding : 0;
+    
+}
+    .content-3{
+        width: 32%;
+        position: relative;
+        display: inline-block;
+
+}
+</style>
 <body>
     <div class="body1">
-        <h1 class="h1-white">Discover Movies</h1>
+        <h1 class="h1-white" align= "center">Trending Movies</h1>
         <div class="rowx">
+            {% for cont in popular %}
             <div class="colx-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="./static/love_my_movies.png">Fuel Tracker</h5>
-                        <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 50px;"> <img style="width: 10px; margin-right: 5px;" src="./sttaic/hotel.png">Geotab Inc.</h6>
-                        <p class="card-text">The moment a Cummins engine system fault occurs, the Geotab device transmits key engine system... </p>
-                        <button type="button" class="btn btn-success">Install</button>
-                        <button type="button" class="btn btn-light">Request info</button>
+                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{cont.poster_path}}">{{cont.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{cont.id}}</h6>
+                        <p class="card-text">{{cont.overview}} </p>
+                        <div>
+                                <button type="button" class="btn btn-info content-3">Like</button>
+                                <td><h5 class="counter content-3" align="center">{{cont.vote_count}}</h5></td>
+                          <button type="button" class="btn btn-danger content-3">Dislike</button>
+  
+                        </div>
+                                        
                     </div>
                 </div>
             </div>
-            <div class="colx-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="./static/pp.png">Fuel Tracker</h5>
-                        <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 50px;"> <img style="width: 10px; margin-right: 5px;" src="./static/hotel.png">Geotab Inc.</h6>
-                        <p class="card-text">The moment a Cummins engine system fault occurs, the Geotab device transmits key engine system... </p>
-                        <button type="button" class="btn btn-success">Install</button>
-                        <button type="button" class="btn btn-light">Request info</button>
+            {% endfor %}
                     </div>
-                </div>
-            </div>
-            <div class="colx-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="./static/pp.png">Fuel Tracker</h5>
-                        <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 50px;"> <img style="width: 10px; margin-right: 5px;" src="./static/hotel.png">Geotab Inc.</h6>
-                        <p class="card-text">The moment a Cummins engine system fault occurs, the Geotab device transmits key engine system... </p>
-                        <button type="button" class="btn btn-success">Install</button>
-                        <button type="button" class="btn btn-light">Request info</button>
-                    </div>
-                </div>
-            </div>
-            <div class="colx-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="./static/pp.png">Fuel Tracker</h5>
-                        <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 50px;"> <img style="width: 10px; margin-right: 5px;" src="./static/hotel.png">Geotab Inc.</h6>
-                        <p class="card-text">The moment a Cummins engine system fault occurs, the Geotab device transmits key engine system... </p>
-                        <button type="button" class="btn btn-success">Install</button>
-                        <button type="button" class="btn btn-light">Request info</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+
     <div style="padding: 1%;">
-        <h1 class="h1-blk">Recomendations</h1>
+        <h1 class="h1-blk" align="center">Discover Movies</h1>
         <div class="rowx">
+        {% for i in discovermovie %}
         <div class="colx-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="./static/pp.png">Fuel Tracker</h5>
-                    <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 50px;"> <img style="width: 10px; margin-right: 5px;" src="./static/hotel.png">Geotab Inc.</h6>
-                    <p class="card-text">The moment a Cummins engine system fault occurs, the Geotab device transmits key engine system... </p>
-                    <button type="button" class="btn btn-success">Install</button>
-                    <button type="button" class="btn btn-light">Request info</button>
+                    <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{i.poster_path}}">{{i.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{i.id}}</h6>
+                    <p class="card-text">{{i.overview}} </p>
+                    <div>
+                                <button type="button" class="btn btn-info content-3">Like</button>
+                                <td><h5 class="counter content-3" align="center">{{i.vote_count}}</h5></td>
+                          <button type="button" class="btn btn-danger content-3">Dislike</button>
+  
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="colx-3">
+        {% endfor %}
+        <!-- <div class="colx-3">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="./static/pp.png">Fuel Tracker</h5>
@@ -148,7 +155,7 @@
                         <button type="button" class="btn btn-light">Request info</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
