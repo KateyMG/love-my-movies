@@ -47,7 +47,7 @@ The app will look like this:
 
 # Usage
 
-> Fill this with your instructions on how to run your app.
+First you build the image with the command shown below
 
 ```bash
 # IT MUST RUN VIA DOCKER
