@@ -35,29 +35,21 @@ movie = discover.discover_movies({
 
 #MOVIE DETAILS 
 
-search = movie.search("Joker")
+#search = movie.search("Joker")
 
-for res in search:
-    print(res.id)
-    print(res.title)
-    print(res.overview)
-    print(res.poster_path)
-    print(res.vote_average)
+#for res in search:
+    #print(res.id)
+    #print(res.title)
+    #print(res.overview)
+    #print(res.poster_path)
+    #print(res.vote_average)
 
-m = movie.details(343611)
-
-print(m.title)
-print(m.overview)
-print(m.popularity)
 
 #TRENDING MOVIES-POPULAR
-popular = movie.popular()
+#popular = movie.popular()
+#print("popular")
 
-for p in popular:
-    print(p.id)
-    print(p.title)
-    print(p.overview)
-    print(p.poster_path)
+
 
 
 #requests.get(f"https://api.themoviedb.org/3/movie/550?api_key={api_key}")
