@@ -3,6 +3,7 @@ from flask import Flask, jsonify, render_template, request
 import os, optparse
 import yaml 
 import requests
+import redis
 from tmdbv3api import TMDb
 from tmdbv3api import Movie
 from tmdbv3api import Discover
@@ -12,6 +13,11 @@ tmdb = TMDb()
 tmdb.api_key = 'fe280a95fb920174dd75e3066c7cc1b8'
 tmdb.language = 'en'
 tmdb.debug= True
+
+#Redis
+r = redis.Redis()
+r.ping
+True
 
 movie = Movie()
 recommendations = movie.recommendations(movie_id=111)
