@@ -36,9 +36,10 @@
     top: 0px;
     position: relative;
     padding: 1%;
+    font: "Comic Sans MS", cursive, sans-serif;
     
     /* Gradients/Blue */
-    background: linear-gradient(162.83deg, #48D3F2 6.03%, rgb(154, 61, 190) 97.94%, rgb(186, 113, 201) 97.94%);
+    background: linear-gradient(162.83deg, rgb(104, 198, 219) 6.03%, rgb(154, 61, 190) 97.94%, rgb(186, 113, 201) 97.94%);
 }
 
 .green-btn {

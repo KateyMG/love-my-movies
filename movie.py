@@ -30,20 +30,19 @@ discovermovie = discover.discover_movies({
     'primary_release_date.gte': '2019-09-20',
     'primary_release_date.lte': '2019-09-25'
  })
-print("---------")
-print(discovermovie)
+
+# for movied in discovermovie:
+#         r.hset(movied.title, "title" ,movied.title)
+#         r.hset(movied.title, "poster_path" ,movied.poster_path)
+#         r.hset(movied.title, "id" ,movied.id)
+#         r.hset(movied.title, "overview" ,movied.overview)
+#         r.hset(movied.title, "vote_count", movied.vote_count)
 
 #MOVIE DETAILS 
-
 
 #TRENDING MOVIES-POPULAR
 movie = Movie()
 popular = movie.popular()
-for p in popular:
-    print(p.id)
-    print(p.title)
-    print(p.overview)
-    print(p.poster_path)
 
 for eachMovie in popular:
         r.hset(eachMovie.title, "title" ,eachMovie.title)
@@ -51,21 +50,10 @@ for eachMovie in popular:
         r.hset(eachMovie.title, "id" ,eachMovie.id)
         r.hset(eachMovie.title, "overview" ,eachMovie.overview)
         r.hset(eachMovie.title, "vote_count", eachMovie.vote_count)
-print("LLLLLLLLLLLLL")
-print(r.hget("Joker","id").decode('utf-8'))
 
 #Infomarcion en redis
 #Inforedis= r
 #print(Inforedis)
-
-#json
-my_details = {
-    'name': 'John Doe',
-    'age': 29
-}
-
-with open('popular_movies.json', 'w') as json_file:
-    json.dump(my_details, json_file)
 
 
 #Recomendations

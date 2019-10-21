@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <style>
+    hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+} 
     .arriba{
  width : 50px;
  height : 50px;
@@ -40,12 +49,13 @@
             <div class="colx-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{r.hget(cont,"poster_path").decode('utf-8')}}">{{cont}}</h5>
+                        <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{r.hget(cont,"poster_path").decode('utf-8')}}">{{r.hget(cont,"title").decode('utf-8')}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{r.hget(cont,"id").decode('utf-8')}}</h6>
                         <p class="card-text">{{r.hget(cont,"overview").decode('utf-8')}}</p>
+                        <hr>
                         <div>
                                 <button type="button" class="btn btn-info content-3">Like</button>
-                                <td><h5 class="counter content-3" align="center">{r.hget(cont,"vote_count").decode('utf-8')}</h5></td>
+                                <td><h5 class="counter content-3" align="center">{{r.hget(cont,"vote_count").decode('utf-8')}}</h5></td>
                           <button type="button" class="btn btn-danger content-3">Dislike</button>
   
                         </div>
@@ -66,11 +76,12 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{i.poster_path}}">{{i.title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{i.id}}</h6>
-                    <p class="card-text">{{i.overview}} </p>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>{i.id}</h6>
+                    <p class="card-text">{i.overview} </p>
+                    <hr>
                     <div>
                                 <button type="button" class="btn btn-info content-3">Like</button>
-                                <td><h5 class="counter content-3" align="center">{{i.vote_count}}</h5></td>
+                                <td><h5 class="counter content-3" align="center">{i.vote_count}</h5></td>
                           <button type="button" class="btn btn-danger content-3">Dislike</button>
   
                     </div>
