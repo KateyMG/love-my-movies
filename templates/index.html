@@ -76,12 +76,12 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{i.poster_path}}">{{i.title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"></h6>{i.id}</h6>
-                    <p class="card-text">{i.overview} </p>
+                    <h6 class="card-subtitle mb-2 text-muted" align="center"></h6>{{i.id}}</h6>
+                    <p class="card-text">{{i.overview}}</p>
                     <hr>
                     <div>
                                 <button type="button" class="btn btn-info content-3">Like</button>
-                                <td><h5 class="counter content-3" align="center">{i.vote_count}</h5></td>
+                                <td><h5 class="counter content-3" align="center">{{i.vote_count}}</h5></td>
                           <button type="button" class="btn btn-danger content-3">Dislike</button>
   
                     </div>

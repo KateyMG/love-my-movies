@@ -1,7 +1,6 @@
 #FLASK
 from flask import Flask, jsonify, render_template, request
 import os, optparse
-import yaml 
 import requests
 import redis
 import json
@@ -19,7 +18,9 @@ tmdb.debug= True
 r = redis.Redis()
 r.ping
 #r = redis.Redis(host='redis', port=6379, db=0, charset="utf-8", decode_responses=True)
-r=redis.Redis(host="localhost",port=6379, db=0) 
+r=redis.Redis(host="localhost",port=6379, db=0)  
+#r = redis.Redis(host='my_redis_service', port=6379, decode_responses=True)
+#redis_server= redis.Redis(host="localhost", port=6379, db=0)
 
 
 
@@ -32,11 +33,14 @@ discovermovie = discover.discover_movies({
  })
 
 # for movied in discovermovie:
-#         r.hset(movied.title, "title" ,movied.title)
-#         r.hset(movied.title, "poster_path" ,movied.poster_path)
-#         r.hset(movied.title, "id" ,movied.id)
-#         r.hset(movied.title, "overview" ,movied.overview)
-#         r.hset(movied.title, "vote_count", movied.vote_count)
+#          redis_server.hset(movied.title, "title" ,movied.title)
+#          redis_server.hset(movied.title, "poster_path" ,movied.poster_path)
+#          redis_server.hset(movied.title, "id" ,movied.id)
+#          redis_server.hset(movied.title, "overview" ,movied.overview)
+#          redis_server.hset(movied.title, "vote_count", movied.vote_count)
+
+#se mezclan las trending con las discover
+#print(redis_server.hget("Fractured","id").decode('utf-8'))
 
 #MOVIE DETAILS 
 

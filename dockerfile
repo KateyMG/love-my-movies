@@ -1,11 +1,11 @@
 FROM python:3-alpine
-WORKDIR /movies.py
+WORKDIR /movie.py
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
 COPY . ./
 
-CMD [ "python", "movies.py" ]
+CMD [ "python", "movie.py" ]
 
 EXPOSE 5000
