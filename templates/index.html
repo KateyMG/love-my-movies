@@ -11,7 +11,17 @@ function demo(tarjeta){
 console.log("Hola demo");
 console.log(tarjeta);
 location.href = "https://www.themoviedb.org/movie/"+tarjeta
-// location.href = "https://www.themoviedb.org/movie/475557-joker"
+}
+
+function like(tarjeta){
+    //vote = r.hget(cont,"vote_count").decode('utf-8');
+    temp = parseInt(tarjeta)+1
+    alert("Los likes aumentaron a "+temp);
+}
+function dislike(tarjeta){
+    //vote = r.hget(cont,"vote_count").decode('utf-8');
+    temp = parseInt(tarjeta)-1
+    alert("Los likes disminuyeron a "+temp);
 }
 </script>
 </head>
@@ -76,9 +86,9 @@ location.href = "https://www.themoviedb.org/movie/"+tarjeta
                         <p class="card-text">{{r.hget(cont,"overview").decode('utf-8')}}</p>
                         <hr>
                         <div>
-                                <button type="button" class="btn btn-info content-3">Like</button>
+                                <button type="button" class="btn btn-info content-3" onclick="like('{{r.hget(cont,"vote_count").decode('utf-8')}}')">Like</button>
                                 <td><h5 class="counter content-3" align="center">{{r.hget(cont,"vote_count").decode('utf-8')}}</h5></td>
-                          <button type="button" class="btn btn-danger content-3">Dislike</button>
+                          <button type="button" class="btn btn-danger content-3" onclick="dislike('{{r.hget(cont,"vote_count").decode('utf-8')}}')">Dislike</button>
   
                         </div>
                         <hr>
@@ -105,9 +115,9 @@ location.href = "https://www.themoviedb.org/movie/"+tarjeta
                     <p class="card-text">{{i.overview}}</p>
                     <hr>
                     <div>
-                        <button type="button" class="btn btn-info content-3">Like</button>
+                        <button type="button" class="btn btn-info content-3" onclick="like('{{i.id}}');">Like</button>
                         <td><h5 class="counter content-3" align="center">{{i.vote_count}}</h5></td>
-                        <button type="button" class="btn btn-danger content-3">Dislike</button>
+                        <button type="button" class="btn btn-danger content-3"onclick="dislike('{{i.id}}');">Dislike</button>
   
                     </div>
                     <hr>

@@ -1,5 +1,6 @@
 FROM python:3-alpine
-WORKDIR /movie.py
+
+WORKDIR /love-my-movies
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt

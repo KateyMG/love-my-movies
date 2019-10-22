@@ -1,8 +1,8 @@
-version: "1"
+version: "2.2"
 services:
     web:
         environment:
-            - API_KEY=${API_KEY}
+            - API_KEY=fe280a95fb920174dd75e3066c7cc1b8
             - ENVIROMENT=prod
         build: .
         ports:
@@ -13,6 +13,3 @@ services:
             - docker_redis
     docker_redis:
         image: redis
-
-after_success:
-    - sh deploy_dockerhub.sh
