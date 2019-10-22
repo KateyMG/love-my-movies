@@ -1,0 +1,18 @@
+version: "1"
+services:
+    web:
+        environment:
+            - API_KEY=${API_KEY}
+            - ENVIROMENT=prod
+        build: .
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/love-my-movies
+        depends_on:
+            - docker_redis
+    docker_redis:
+        image: redis
+
+after_success:
+    - sh deploy_dockerhub.sh

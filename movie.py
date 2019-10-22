@@ -55,9 +55,6 @@ for eachMovie in popular:
         r.hset(eachMovie.title, "overview" ,eachMovie.overview)
         r.hset(eachMovie.title, "vote_count", eachMovie.vote_count)
 
-#Infomarcion en redis
-#Inforedis= r
-#print(Inforedis)
 
 
 #Recomendations

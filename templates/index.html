@@ -6,8 +6,24 @@
     type = "text/css"
     href = "static/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script>
+function demo(tarjeta){
+console.log("Hola demo");
+console.log(tarjeta);
+location.href = "https://www.themoviedb.org/movie/"+tarjeta
+// location.href = "https://www.themoviedb.org/movie/475557-joker"
+}
+</script>
 </head>
 <style>
+    .wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
     hr { 
   display: block;
   margin-top: 0.5em;
@@ -40,6 +56,12 @@
         display: inline-block;
 
 }
+.content-2{
+        width: 32%;
+        position: relative;
+        display: inline-block;
+
+}
 </style>
 <body>
     <div class="body1">
@@ -59,7 +81,10 @@
                           <button type="button" class="btn btn-danger content-3">Dislike</button>
   
                         </div>
-                                        
+                        <hr>
+                        <button type="button" class="btn btn-warning" onclick="demo('{{r.hget(cont,"id").decode('utf-8')}}');">Click & Show more</button>
+
+                                       
                     </div>
                 </div>
             </div>
@@ -80,11 +105,15 @@
                     <p class="card-text">{{i.overview}}</p>
                     <hr>
                     <div>
-                                <button type="button" class="btn btn-info content-3">Like</button>
-                                <td><h5 class="counter content-3" align="center">{{i.vote_count}}</h5></td>
-                          <button type="button" class="btn btn-danger content-3">Dislike</button>
+                        <button type="button" class="btn btn-info content-3">Like</button>
+                        <td><h5 class="counter content-3" align="center">{{i.vote_count}}</h5></td>
+                        <button type="button" class="btn btn-danger content-3">Dislike</button>
   
                     </div>
+                    <hr>
+                    <!-- <button type="button" class="btn btn-warning" align ="center" onclick="demo('{{i.id}}');">Click & show more</button> -->
+                            <button type="button" class="btn btn-warning" onclick="demo('{{i.id}}');">Click & Show more</button>
+                        
                 </div>
             </div>
         </div>

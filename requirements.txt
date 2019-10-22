@@ -2,6 +2,7 @@ flask
 tmdbv3api
 redis==3.3.11
 pytest
+jinja2
 
 
 
