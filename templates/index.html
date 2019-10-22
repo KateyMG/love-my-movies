@@ -83,7 +83,11 @@ function dislike(tarjeta){
                     <div class="card-body">
                         <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{r.hget(cont,"poster_path").decode('utf-8')}}">{{r.hget(cont,"title").decode('utf-8')}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{r.hget(cont,"id").decode('utf-8')}}</h6>
-                        <p class="card-text">{{r.hget(cont,"overview").decode('utf-8')}}</p>
+                        {% if r.hget(cont,"overview").decode('utf-8')|length > 200 %}
+                            <p class="card-text">{{r.hget(cont,"overview").decode('utf-8')[0:100]}}...</p>
+                        {% else %}
+                            <p class="card-text">{{r.hget(cont,"overview").decode('utf-8')}}</p>
+                        {% endif %}
                         <hr>
                         <div>
                                 <button type="button" class="btn btn-info content-3" onclick="like('{{r.hget(cont,"vote_count").decode('utf-8')}}')">Like</button>
@@ -112,6 +116,7 @@ function dislike(tarjeta){
                 <div class="card-body">
                     <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{i.poster_path}}">{{i.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted" align="center"></h6>{{i.id}}</h6>
+                    
                     <p class="card-text">{{i.overview}}</p>
                     <hr>
                     <div>
