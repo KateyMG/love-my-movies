@@ -48,6 +48,7 @@ The app will look like this:
 # Usage
 
 First you build the image with the command shown below
+Docker must be installed
 
 ```bash
 # IT MUST RUN VIA DOCKER
