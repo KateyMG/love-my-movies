@@ -15,10 +15,9 @@ tmdb.language = 'en'
 tmdb.debug= True
 
 #Redis
-r = redis.Redis()
-r.ping
+#r.ping
 #r = redis.Redis(host='redis', port=6379, db=0, charset="utf-8", decode_responses=True)
-r=redis.Redis(host="localhost",port=6379, db=0)  
+r=redis.Redis(host="docker_redis",port=6379, db=0)  
 #r = redis.Redis(host='my_redis_service', port=6379, decode_responses=True)
 #redis_server= redis.Redis(host="localhost", port=6379, db=0)
 
