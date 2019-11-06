@@ -81,6 +81,7 @@ function dislike(tarjeta){
             <div class="colx-3">
                 <div class="card">
                     <div class="card-body">
+        
                         <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{r.hget(cont,"poster_path").decode('utf-8')}}">{{r.hget(cont,"title").decode('utf-8')}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{r.hget(cont,"id").decode('utf-8')}}</h6>
                         {% if r.hget(cont,"overview").decode('utf-8')|length > 200 %}
