@@ -74,6 +74,16 @@ function dislike(tarjeta){
 }
 </style>
 <body>
+    <div class="jumbotron card card-image" style="background-image: url(https://wallpapercave.com/wp/wp4016023.jpg);">
+            <div class="text-white text-center py-5 px-4">
+              <div>
+                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>LOVE  MY MOVIES</strong></h2>
+                <p class="mx-5 mb-5">You can watch discover and trending movies in this place
+                </p>
+                <a class="btn btn-outline-white btn-md"><i class="fas fa-clone left"></i> MOVIES</a>
+              </div>
+            </div>
+          </div>
     <div class="body1">
         <h1 class="h1-white" align= "center">Trending Movies</h1>
         <div class="rowx">
@@ -84,7 +94,7 @@ function dislike(tarjeta){
         
                         <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{r.hget(cont,"poster_path").decode('utf-8')}}">{{r.hget(cont,"title").decode('utf-8')}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{r.hget(cont,"id").decode('utf-8')}}</h6>
-                        {% if r.hget(cont,"overview").decode('utf-8')|length > 200 %}
+                        {% if r.hget(cont,"overview").decode('utf-8')|length > 100 %}
                             <p class="card-text">{{r.hget(cont,"overview").decode('utf-8')[0:100]}}...</p>
                         {% else %}
                             <p class="card-text">{{r.hget(cont,"overview").decode('utf-8')}}</p>
@@ -106,8 +116,6 @@ function dislike(tarjeta){
             {% endfor %}
                     </div>
     </div>
-
-
     <div style="padding: 1%;">
         <h1 class="h1-blk" align="center">Discover Movies</h1>
         <div class="rowx">
@@ -117,8 +125,11 @@ function dislike(tarjeta){
                 <div class="card-body">
                     <h5 class="card-title"><img style="width: 40px; border-radius: 16px; margin-right: 10px;" src="http://image.tmdb.org/t/p/w185//{{i.poster_path}}">{{i.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted" align="center"></h6>{{i.id}}</h6>
-                    
-                    <p class="card-text">{{i.overview}}</p>
+                    {% if i.overview|length > 100 %}
+                        <p class="card-text">{{ i.overview [0:100]}}...</p>
+                    {% else %}
+                        <p class="card-text">{{i.overview}}</p>
+                    {% endif %}
                     <hr>
                     <div>
                         <button type="button" class="btn btn-info content-3" onclick="like('{{i.id}}');">Like</button>
@@ -128,8 +139,9 @@ function dislike(tarjeta){
                     </div>
                     <hr>
                     <!-- <button type="button" class="btn btn-warning" align ="center" onclick="demo('{{i.id}}');">Click & show more</button> -->
-                            <button type="button" class="btn btn-warning" onclick="demo('{{i.id}}');">Click & Show more</button>
-                        
+                    <div id="wrapper">
+                        <button type="button" class="bn btn btn-warning" onclick="demo('{{i.id}}');">Click & Show more</button>
+                    </div>                        
                 </div>
             </div>
         </div>

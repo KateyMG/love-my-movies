@@ -105,3 +105,13 @@ border-radius: 8px;
     float: left;
     padding: 15px;
   }
+
+  #wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .bn {
+    display: flex;
+    position: relative !important;
+  }
